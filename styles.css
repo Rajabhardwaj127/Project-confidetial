@@ -18,7 +18,7 @@ body {
 
 
 .hero {
-  background-image: url('https://via.placeholder.com/1920x800');
+  background-image: url('images/DSC01354.JPG');
   background-size: cover;
   background-position: center;
   color: #fff;
@@ -277,6 +277,84 @@ video {
   margin-bottom:15px ;
 }
 
+
+/* Container for Two Images */
+.image-pair-container {
+  display: flex; /* Align items side by side */
+  justify-content: center; /* Center the images horizontally */
+  align-items: center; /* Align images vertically */
+  gap: 0; /* Remove any gap between images */
+  width: 100%;
+  margin: 0 auto; /* Center the container */
+  overflow: hidden; /* Ensure no overflow */
+}
+
+/* Individual Image Box */
+.image-box {
+  flex: 1; /* Equal width for both images */
+  max-width: 50%; /* Each image takes 50% width */
+  height: 960px; /* Set height to match image dimensions */
+  overflow: hidden; /* Ensure no content spills out */
+}
+
+.image-box img {
+  width: 100%; /* Full width of the container */
+  height: 100%; /* Full height of the container */
+  object-fit: cover; /* Maintain aspect ratio while covering */
+}
+
+/* Banner above the footer */
+
+.footer-banner {
+  position: relative; /* Create positioning context */
+  width: 100%;
+  height: 600px; /* Adjust height as needed */
+  overflow: hidden;
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+
+.footer-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Maintain image proportions and cover the container */
+}
+
+.footer-banner-content {
+  position: absolute; /* Position the content over the image */
+  bottom: 20px; /* Distance from the bottom of the image */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Center perfectly */
+  text-align: center; /* Align content center */
+  color: white; /* Text color for visibility */
+  z-index: 10; /* Ensure content is above the image */
+}
+
+.footer-heading {
+  font-size: 3rem; /* Adjust text size */
+  font-weight: bold;
+  margin-bottom: 15px; /* Space between heading and button */
+  text-transform: uppercase;
+}
+
+.footer-button {
+  display: inline-block;
+  padding: 10px 30px;
+  font-size: 1.2rem;
+  color: white;
+  border: 2px solid white; /* Border for button */
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.footer-button:hover {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}
+
+
+
 /* Footer Styling */
 .footer {
   background-color: rgb(255, 255, 255);
@@ -379,3 +457,5 @@ video {
 .social-icons a:hover {
   color: #cb5835;
 }
+
+

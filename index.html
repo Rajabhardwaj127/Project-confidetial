@@ -50,7 +50,9 @@
     </div>
 </section>
 
-<div class="sepration">
+<!-- swiggy crousel idea -->
+
+<!-- <div class="sepration">
 
     <span>The Biggest collection is here</span>
     <div class="food">
@@ -59,70 +61,124 @@
     <img src="images/1.png" alt="">
     <img src="images/1.png" alt="">
     
-</div>
+</div> -->
 
-
+<!-- Product Carousel -->
 <div class="container mt-5">
     <h2 class="text-center mb-4">Product Carousel</h2>
-    <!-- Carousel Container -->
     <div class="carousel-container">
-      <!-- Navigation Buttons -->
+      <!-- Left Button -->
       <button class="carousel-btn left" id="prevBtn">&lt;</button>
-      <button class="carousel-btn right" id="nextBtn">&gt;</button>
   
-      <!-- Carousel Wrapper -->
+      <!-- Product Wrapper -->
       <div class="carousel-wrapper" id="carouselWrapper">
-        <!-- Product Cards -->
+        <!-- Repeated product cards -->
         <div class="product-card">
-          <img src="3.png" alt="Product 1">
+          <img src="images/1.png" alt="Product 1" data-hover="images/DSC01581.jpg">
           <h5>Product 1</h5>
           <p>$100</p>
         </div>
         <div class="product-card">
-          <img src="4.png" alt="Product 2">
+          <img src="images/2.png" alt="Product 2" data-hover="images/DSC00717.jpg">
           <h5>Product 2</h5>
           <p>$200</p>
         </div>
         <div class="product-card">
-          <img src="images/3.png" alt="Product 3">
+          <img src="images/3.png" alt="Product 3" data-hover="images/DSC01453.jpg">
           <h5>Product 3</h5>
           <p>$300</p>
         </div>
         <div class="product-card">
-          <img src="images/4.png" alt="Product 4">
+          <img src="images/4.png" alt="Product 4" data-hover="images/DSC01453.jpg">
           <h5>Product 4</h5>
           <p>$400</p>
         </div>
         <div class="product-card">
-          <img src="images/5.png" alt="Product 5">
+          <img src="images/5.png" alt="Product 5" data-hover="images/DSC01608.jpg">
           <h5>Product 5</h5>
           <p>$500</p>
         </div>
         <div class="product-card">
-          <img src="images/6.png" alt="Product 6">
+          <img src="images/1.png" alt="Product 1" data-hover="images/DSC01581.jpg">
+          <h5>Product 1</h5>
+          <p>$100</p>
+        </div>
+        <div class="product-card">
+          <img src="images/2.png" alt="Product 2" data-hover="images/DSC00717.jpg">
+          <h5>Product 2</h5>
+          <p>$200</p>
+        </div>
+        <div class="product-card">
+          <img src="images/3.png" alt="Product 3" data-hover="images/DSC01453.jpg">
+          <h5>Product 3</h5>
+          <p>$300</p>
+        </div>
+        <div class="product-card">
+          <img src="images/4.png" alt="Product 4" data-hover="images/DSC01453.jpg">
+          <h5>Product 4</h5>
+          <p>$400</p>
+        </div>
+        <div class="product-card">
+          <img src="images/5.png" alt="Product 5" data-hover="images/DSC01608.jpg">
+          <h5>Product 5</h5>
+          <p>$500</p>
+        </div>
+        <div class="product-card">
+          <img src="images/1.png" alt="Product 1" data-hover="images/DSC01581.jpg">
+          <h5>Product 1</h5>
+          <p>$100</p>
+        </div>
+        <div class="product-card">
+          <img src="images/2.png" alt="Product 2" data-hover="images/DSC00717.jpg">
+          <h5>Product 2</h5>
+          <p>$200</p>
+        </div>
+        <div class="product-card">
+          <img src="images/3.png" alt="Product 3" data-hover="images/DSC01453.jpg">
+          <h5>Product 3</h5>
+          <p>$300</p>
+        </div>
+        <div class="product-card">
+          <img src="images/4.png" alt="Product 4" data-hover="images/DSC01453.jpg">
+          <h5>Product 4</h5>
+          <p>$400</p>
+        </div>
+        <div class="product-card">
+          <img src="images/5.png" alt="Product 5" data-hover="images/DSC01608.jpg">
+          <h5>Product 5</h5>
+          <p>$500</p>
+        </div>
+        <!-- <div class="product-card">
+          <img src="images/6.png" alt="Product 6" data-hover="images/6-hover.png">
           <h5>Product 6</h5>
           <p>$600</p>
         </div>
         <div class="product-card">
-          <img src="images/7.png" alt="Product 7">
+          <img src="images/7.png" alt="Product 7" data-hover="images/7-hover.png">
           <h5>Product 7</h5>
           <p>$700</p>
         </div>
         <div class="product-card">
-          <img src="images/8.png" alt="Product 8">
+          <img src="images/8.png" alt="Product 8" data-hover="images/8-hover.png">
           <h5>Product 8</h5>
           <p>$800</p>
         </div>
         <div class="product-card">
-          <img src="images/9.png" alt="Product 9">
+          <img src="images/9.png" alt="Product 9" data-hover="images/9-hover.png">
           <h5>Product 9</h5>
           <p>$900</p>
         </div>
+        <div class="product-card">
+          <img src="images/10.png" alt="Product 10" data-hover="images/10-hover.png">
+          <h5>Product 10</h5>
+          <p>$1000</p>
+        </div> -->
       </div>
+  
+      <!-- Right Button -->
+      <button class="carousel-btn right" id="nextBtn">&gt;</button>
     </div>
   </div>
-  
-
     
 
 <!-- Products Section -->
@@ -194,6 +250,82 @@
     </div>
 </section>
 
+<!-- JavaScript -->
+ <script>
+// Select DOM elements
+const carouselWrapper = document.querySelector('#carouselWrapper');
+const prevBtn = document.querySelector('#prevBtn');
+const nextBtn = document.querySelector('#nextBtn');
+const productCards = document.querySelectorAll('.product-card img');
+
+// Carousel settings
+let currentIndex = 0;
+const visibleItems = 5;
+const totalItems = document.querySelectorAll('.product-card').length;
+
+// Function to update carousel position
+function updateCarousel() {
+  const itemWidth = document.querySelector('.product-card').offsetWidth;
+  carouselWrapper.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+}
+
+// Move to next set of products
+nextBtn.addEventListener('click', () => {
+  if (currentIndex < totalItems - visibleItems) {
+    currentIndex++;
+  } else {
+    currentIndex = 0; // Loop back to start
+  }
+  updateCarousel();
+});
+
+// Move to previous set of products
+prevBtn.addEventListener('click', () => {
+  if (currentIndex > 0) {
+    currentIndex--;
+  } else {
+    currentIndex = totalItems - visibleItems; // Loop to end
+  }
+  updateCarousel();
+});
+
+// Hover Image Change
+productCards.forEach((img) => {
+  const originalSrc = img.src;
+  const hoverSrc = img.getAttribute('data-hover');
+
+  img.addEventListener('mouseover', () => {
+    if (hoverSrc) img.src = hoverSrc;
+  });
+
+  img.addEventListener('mouseout', () => {
+    img.src = originalSrc;
+  });
+});
+</script>
+
+
+  <!-- Pair Image -->
+ <!-- Two Images Section Above Footer-Banner -->
+ <div class="image-pair-container">
+    <div class="image-box">
+      <img src="images/DSC00722.jpg" alt="First Image">
+    </div>
+    <div class="image-box">
+      <img src="images/DSC01453.jpg" alt="Second Image">
+    </div>
+  </div>
+  
+  
+  <!-- Footer Banner -->
+  <div class="footer-banner">
+    <img src="images/DSC01354.JPG" alt="Footer Banner">
+    <div class="footer-banner-content">
+      <h1 class="footer-heading">GENZ COLLECTION</h1>
+      <a href="your-link-page.html" class="footer-button">SHOP NOW</a>
+    </div>
+  </div>  
+  
 <!-- Footer -->
 <!-- Footer Section -->
 <footer class="footer">
@@ -270,6 +402,7 @@
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="script.js"></script>
+  
 </body>
 </html>
 
