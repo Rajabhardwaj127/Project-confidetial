@@ -17,93 +17,6 @@ body {
 }
 
 
-
-/* Navbar Styling */
-:root {
-  --primary-color: #cb5835;
-  --light-color: white;
-  --dark-color: #333;
-  --transition-speed: 0.3s;
-}
-
-.navbar-brand {
-  font-size: 3rem;
-  font-weight: 700;
-  transition: all var(--transition-speed) ease;
-  color: var(--light-color); /* White when expanded */
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.3); /* Optional: adds subtle shadow */
-}
-
-.navbar {
-  background-color: transparent;
-  transition: all var(--transition-speed) ease;
-  padding: 20px 0;
-}
-
-.navbar.scrolled {
-  background-color: var(--light-color);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  padding: 10px 0;
-}
-
-.navbar.scrolled .navbar-brand {
-  font-size: 1.5rem;
-  color: var(--dark-color); /* Black when scrolled */
-}
-
-/* Optional: Add gradient or more complex color transition */
-.navbar-brand {
-  background: linear-gradient(to right, var(--light-color), #f0f0f0);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.navbar.scrolled .navbar-brand {
-  background: linear-gradient(to right, var(--dark-color), #333);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.nav-link {
-  color: black;
-  font-weight: 500;
-  margin: 0 15px;
-  position: relative;
-}
-
-.nav-link::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: -5px;
-  left: 0;
-  background-color: var(--primary-color);
-  transition: width var(--transition-speed) ease;
-}
-
-.nav-link:hover::after {
-  width: 100%;
-}
-
-.navbar-icons a {
-  color: var(--primary-color);
-  margin: 0 10px;
-  font-size: 1.2rem;
-  transition: transform var(--transition-speed) ease;
-}
-
-.navbar-icons a:hover {
-  transform: scale(1.2);
-}
-
-@media (max-width: 991px) {
-  .navbar-brand {
-      font-size: 2rem;
-  }
-  .nav-link {
-      text-align: center;
-  }
-}
 .hero {
   background-image: url('https://via.placeholder.com/1920x800');
   background-size: cover;
@@ -125,105 +38,7 @@ body {
 .product-card img {
   border-radius: 10px;
 }
-/* Footer Styling */
-.footer {
-  background-color: black;
-  color: white;
-  padding: 40px 20px;
-  font-family: Arial, sans-serif;
-}
 
-.footer-container {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.footer-section {
-  flex: 1;
-  min-width: 200px;
-}
-
-.footer-section h3 {
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.footer-section ul {
-  list-style: none;
-}
-
-.footer-section ul li {
-  margin: 8px 0;
-}
-
-.footer-section ul li a {
-  text-decoration: none;
-  color: white;
-  transition: color 0.3s;
-}
-
-.footer-section ul li a:hover {
-  color: #cb5835;
-}
-
-.subscribe form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.subscribe input {
-  padding: 8px;
-  border: 1px solid #787575;
-  border-radius: 4px;
-}
-
-.subscribe button {
-  padding: 8px;
-  background-color: rgb(202, 193, 193);
-  color: black;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.subscribe button:hover {
-  background-color: #cb5835;
-}
-
-.footer-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-top: 1px solid white;
-  padding: 20px 0;
-  margin-top: 20px;
-  font-size: 14px;
-}
-
-.footer-links a {
-  text-decoration: none;
-  color: white;
-  margin: 0 10px;
-}
-
-.footer-links a:hover {
-  color: #cb5835;
-}
-
-.social-icons a {
-  margin: 0 8px;
-  font-size: 18px;
-  color: white;
-  transition: color 0.3s;
-}
-
-.social-icons a:hover {
-  color: #cb5835;
-}
 /* Header Styling */
 .header {
   background: #cb5835;
@@ -280,7 +95,76 @@ video {
   letter-spacing: 80px;
 }
 
+.sepration{
+  height: 33vh;
+  position: relative;
+  z-index: 20;    
+     
+}
 
+.sepration>:nth-child(1){
+  font-family: martel sans;
+  font-size: 26px;
+  font-weight: bolder; 
+  display: flex;
+  justify-content: center;
+}
+
+.food{
+
+  height: 25vh;
+  display: flex;
+  justify-content: space-around;
+  
+}
+
+ /* Custom carousel container */
+ .carousel-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  margin: auto;
+}
+
+/* Carousel wrapper for sliding */
+.carousel-wrapper {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+/* Each product card */
+.product-card {
+  flex: 0 0 20%; /* 20% width = 5 items per row */
+  padding: 10px;
+  text-align: center;
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Navigation buttons */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.carousel-btn.left {
+  left: 10px;
+}
+
+.carousel-btn.right {
+  right: 10px;
+}
 
 
 /* Product Section */
@@ -391,4 +275,107 @@ video {
   animation: appear 5s linear ;
   /* animation-timeline: view() ; */
   margin-bottom:15px ;
+}
+
+/* Footer Styling */
+.footer {
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+
+   /* Thin line above the footer */
+   border-top: 1px solid #ccc; /* Adjust the color and thickness as needed */
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-section h3 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.footer-section ul {
+  list-style: none;
+}
+
+.footer-section ul li {
+  margin: 8px 0;
+}
+
+.footer-section ul li a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+  color: #cb5835;
+}
+
+.subscribe form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.subscribe input {
+  padding: 8px;
+  border: 1px solid #000000;
+  border-radius: 0px;
+}
+
+.subscribe button {
+  padding: 8px;
+  background-color: rgb(0, 0, 0);
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.subscribe button:hover {
+  background-color: #cb5835;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgb(0, 0, 0);
+  padding: 20px 0;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  margin: 0 10px;
+}
+
+.footer-links a:hover {
+  color: #cb5835;
+}
+
+.social-icons a {
+  margin: 0 8px;
+  font-size: 18px;
+  color: rgb(0, 0, 0);
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #cb5835;
 }
