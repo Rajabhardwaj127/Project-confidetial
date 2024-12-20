@@ -6,7 +6,7 @@
 }
 
 body {
-  font-family: 'Poppins' , Arial, sans-serif;
+  font-family: 'Montserrat', Arial, sans-serif;
   overflow-x: hidden;
   scroll-behavior: smooth;
   color: #333;
@@ -103,7 +103,7 @@ video {
 }
 
 .sepration>:nth-child(1){
-  font-family: martel sans;
+  font-family: 'Montserrat', Arial, sans-serif;
   font-size: 26px;
   font-weight: bolder; 
   display: flex;
@@ -360,7 +360,7 @@ video {
   background-color: rgb(255, 255, 255);
   color: rgb(0, 0, 0);
   padding: 40px 20px;
-  font-family: Arial, sans-serif;
+  font-family: 'Montserrat', Arial, sans-serif;
 
    /* Thin line above the footer */
    border-top: 1px solid #ccc; /* Adjust the color and thickness as needed */
