@@ -48,39 +48,73 @@ gsap.from(".product-card", {
 });
 
 
-// const carouselWrapper = document.getElementById("carouselWrapper");
-//   const prevBtn = document.getElementById("prevBtn");
-//   const nextBtn = document.getElementById("nextBtn");
+// Ensure the DOM is fully loaded before running the script
+document.addEventListener('DOMContentLoaded', () => {
+  // Select modal and buttons
+  const loginModal = document.getElementById('loginModal'); // Make sure the ID matches your HTML
+  const closeModalBtn = document.getElementById('closeModalBtn'); // Make sure the ID matches your HTML
+  const loginToggle = document.getElementById('loginToggle'); // Make sure the ID matches your HTML
+  const signupToggle = document.getElementById('signupToggle'); // Make sure the ID matches your HTML
+  const loginForm = document.getElementById('loginForm'); // Make sure the ID matches your HTML
+  const signupForm = document.getElementById('signupForm'); // Make sure the ID matches your HTML
 
-//   let currentIndex = 0;
-//   const totalItems = document.querySelectorAll(".product-card").length;
-//   const itemsPerView = 5;
+  // Show modal after 5 seconds
+  setTimeout(() => {
+    if (loginModal) {
+      loginModal.style.display = 'flex';
+    } else {
+      console.error('loginModal element not found!');
+    }
+  }, 5000);
 
-//   // Calculate max index for sliding
-//   const maxIndex = totalItems - itemsPerView;
+  // Close modal
+  if (closeModalBtn) {
+    closeModalBtn.addEventListener('click', () => {
+      if (loginModal) {
+        loginModal.style.display = 'none';
+      } else {
+        console.error('loginModal element not found!');
+      }
+    });
+  } else {
+    console.error('closeModalBtn element not found!');
+  }
 
-//   // Move to next items
-//   nextBtn.addEventListener("click", () => {
-//     if (currentIndex < maxIndex) {
-//       currentIndex++;
-//     } else {
-//       currentIndex = 0; // Loop back to start
-//     }
-//     updateCarousel();
-//   });
+  // Toggle between login and signup
+  if (loginToggle && signupToggle && loginForm && signupForm) {
+    loginToggle.addEventListener('click', () => {
+      loginToggle.classList.add('active');
+      signupToggle.classList.remove('active');
+      loginForm.classList.add('active');
+      signupForm.classList.remove('active');
+    });
 
-//   // Move to previous items
-//   prevBtn.addEventListener("click", () => {
-//     if (currentIndex > 0) {
-//       currentIndex--;
-//     } else {
-//       currentIndex = maxIndex; // Loop to the end
-//     }
-//     updateCarousel();
-//   });
+    signupToggle.addEventListener('click', () => {
+      signupToggle.classList.add('active');
+      loginToggle.classList.remove('active');
+      signupForm.classList.add('active');
+      loginForm.classList.remove('active');
+    });
+  } else {
+    console.error('One or more elements related to toggle functionality are missing!');
+  }
 
-//   // Update carousel position
-//   function updateCarousel() {
-//     const translateX = -currentIndex * (100 / itemsPerView);
-//     carouselWrapper.style.transform = `translateX(${translateX}%)`;
-//   }
+  // Form submission (you'll want to replace these with actual authentication logic)
+  if (loginForm) {
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Login functionality to be implemented');
+    });
+  } else {
+    console.error('loginForm element not found!');
+  }
+
+  if (signupForm) {
+    signupForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Signup functionality to be implemented');
+    });
+  } else {
+    console.error('signupForm element not found!');
+  }
+});
