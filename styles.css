@@ -142,7 +142,7 @@ video {
 .product-card img {
   width: 100%;
   height: auto;
-  border-radius: 8px;
+  border-radius: 0px;
 }
 
 /* Navigation buttons */
@@ -150,7 +150,7 @@ video {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0);
   color: white;
   border: none;
   padding: 10px 15px;
@@ -159,122 +159,55 @@ video {
 }
 
 .carousel-btn.left {
-  left: 10px;
+  left: 5px;
 }
 
 .carousel-btn.right {
-  right: 10px;
+  right: 5px;
 }
 
 
 /* Product Section */
-.product-section {
-  background: #fff;
-  color: #000;
-  padding: 50px 20px;
+/* Product Grid */
+.product-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Three products per row */
-  gap: 20px;
-  margin-top: 0; /* No gap between video and products */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
-.product {
-  text-align: center;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 700px; /* Uniform height for all products */
+.product-item {
+  text-decoration: none; /* Remove underline from links */
+  color: inherit; /* Inherit color from parent */
+  display: block; /* Make the entire item clickable */
+  position: relative;
+  cursor: pointer;
 }
 
-.product:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.product-img {
-  height: 500px; /* Uniform height for images */
+.product-item img {
   width: 100%;
-  overflow: hidden;
+  height: auto;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.product-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Ensure the image covers the container without distortion */
+.product-item h3, .product-item p {
+  margin: 0;
+  font-size: 14px;
+  text-align: left;
 }
 
-.logo-main{
-  text-align: center;
-   
-}
-.scroll-reveal-section {
-  background-color: #f8f9fa;
-  padding: 50px 0;
-}
-
-.scroll-cards .scroll-card {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.8s ease;
-  visibility: hidden;
-}
-
-.scroll-cards .scroll-card.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-  visibility: visible;
-}
-
-.scroll-card .card {
-  background-color: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-}
-
-.scroll-card .card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-.scroll-card .card-img-top {
-  height: 250px;
-  object-fit: cover;
-}
-
-.scroll-card .card-price {
-  color: #cb5835;
-  font-weight: bold;
-  font-size: 1.2rem;
-}
-
-.scroll-card .btn-primary {
-  background-color: #cb5835;
-  border-color: #cb5835;
-}
-
-.scroll-card .btn-primary:hover {
-  background-color: #a64629;
-}
-
-@keyframes appear {
-  from{
-    opacity: 0;
-    scale : 0.5;
-  }
-  to {
-    opacity: 1;
-    scale: 1;
-  }
-}
-.col-md-4{
-  animation: appear 5s linear ;
-  /* animation-timeline: view() ; */
-  margin-bottom:15px ;
+/* Heart Icon */
+.heart-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  color: #131313;
+  cursor: pointer;
 }
 
 
@@ -478,11 +411,12 @@ video {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   position: relative;
+  align-items: center;
 }
 
 .modal-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 15px;
   background-color: #f4f4f4;
@@ -495,6 +429,30 @@ video {
   cursor: pointer;
   color: #333;
 }
+
+/* Close Button Styling */
+.close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-btn:hover {
+  color: #ff0000; /* Optional: Change color on hover */
+}
+
+.material-icons {
+  font-size: 24px; /* Adjust size as needed */
+}
+
 
 .form-container {
   padding: 20px;

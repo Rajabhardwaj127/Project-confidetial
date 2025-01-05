@@ -48,73 +48,35 @@ gsap.from(".product-card", {
 });
 
 
-// Ensure the DOM is fully loaded before running the script
-document.addEventListener('DOMContentLoaded', () => {
-  // Select modal and buttons
-  const loginModal = document.getElementById('loginModal'); // Make sure the ID matches your HTML
-  const closeModalBtn = document.getElementById('closeModalBtn'); // Make sure the ID matches your HTML
-  const loginToggle = document.getElementById('loginToggle'); // Make sure the ID matches your HTML
-  const signupToggle = document.getElementById('signupToggle'); // Make sure the ID matches your HTML
-  const loginForm = document.getElementById('loginForm'); // Make sure the ID matches your HTML
-  const signupForm = document.getElementById('signupForm'); // Make sure the ID matches your HTML
+document.querySelectorAll('.product-item').forEach((item) => {
+  const images = item.getAttribute('data-images') ? item.getAttribute('data-images').split(',') : [];
+  let currentImageIndex = 0;
+  const productImage = item.querySelector('.product-image');
+  let imageSwitchInterval;
 
-  // Show modal after 5 seconds
-  setTimeout(() => {
-    if (loginModal) {
-      loginModal.style.display = 'flex';
-    } else {
-      console.error('loginModal element not found!');
-    }
-  }, 5000);
-
-  // Close modal
-  if (closeModalBtn) {
-    closeModalBtn.addEventListener('click', () => {
-      if (loginModal) {
-        loginModal.style.display = 'none';
-      } else {
-        console.error('loginModal element not found!');
+  function switchImage() {
+      if (images.length > 1) {
+          currentImageIndex = (currentImageIndex + 1) % images.length;
+          productImage.src = images[currentImageIndex];
       }
-    });
-  } else {
-    console.error('closeModalBtn element not found!');
   }
 
-  // Toggle between login and signup
-  if (loginToggle && signupToggle && loginForm && signupForm) {
-    loginToggle.addEventListener('click', () => {
-      loginToggle.classList.add('active');
-      signupToggle.classList.remove('active');
-      loginForm.classList.add('active');
-      signupForm.classList.remove('active');
-    });
+  item.addEventListener('mouseenter', () => {
+      if (images.length > 1) {
+          clearInterval(imageSwitchInterval);
+          imageSwitchInterval = setInterval(switchImage, 1000);
+      }
+  });
 
-    signupToggle.addEventListener('click', () => {
-      signupToggle.classList.add('active');
-      loginToggle.classList.remove('active');
-      signupForm.classList.add('active');
-      loginForm.classList.remove('active');
-    });
-  } else {
-    console.error('One or more elements related to toggle functionality are missing!');
-  }
-
-  // Form submission (you'll want to replace these with actual authentication logic)
-  if (loginForm) {
-    loginForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      alert('Login functionality to be implemented');
-    });
-  } else {
-    console.error('loginForm element not found!');
-  }
-
-  if (signupForm) {
-    signupForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      alert('Signup functionality to be implemented');
-    });
-  } else {
-    console.error('signupForm element not found!');
-  }
+  item.addEventListener('mouseleave', () => {
+      clearInterval(imageSwitchInterval);
+      currentImageIndex = 0;
+      productImage.src = images[0];
+  });
 });
+
+function addToFavorites(event) {
+  event.stopPropagation(); // Prevent click on heart icon from propagating
+  const heartIcon = event.target;
+  heartIcon.innerText = heartIcon.innerText === "favorite_border" ? "favorite" : "favorite_border";
+}
