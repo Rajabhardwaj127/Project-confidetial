@@ -6,8 +6,8 @@ const {connectToMongoDB} = require("./connect");
 const {restrictToLoggedinUserOnly} = require("./middlewares/auth");
 const userRoute = require("./routes/user");
 const PORT = 8000;
-const orderRouter = require('./controller/orderHandler');
-app.use(orderRouter);
+const orderRouter = require('./controller/orderHandler'); // Update path as needed
+app.use("/api/orders", express.json(), orderRouter); // Make sure express.json() middleware is applied
 
 connectToMongoDB("mongodb+srv://rajabhardwaj127:hemlata.satish1977@cluster0.y7htk.mongodb.net/confidential")
 .then(() => {
@@ -28,6 +28,15 @@ app.set("views", path.resolve("./backend/views"));
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../index.html"));
 })
+
+
+const profileRouter = require('./controller/profileHandler');
+app.get("/profile", restrictToLoggedinUserOnly, (req, res) => {
+    res.sendFile(path.join(__dirname, "../profile_user/profile.html"));
+});
+app.use("/api/profile", restrictToLoggedinUserOnly, profileRouter);
+
+
 
 app.get("/bagpack", (req, res) => {
   res.sendFile(path.join(__dirname, "../Bagpack/bagpack.html"));

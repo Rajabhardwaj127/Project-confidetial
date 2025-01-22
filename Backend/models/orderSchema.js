@@ -38,6 +38,11 @@ const OrderSchema = new mongoose.Schema({
     type: String, 
     enum: ['pending', 'processing', 'shipped', 'delivered'], 
     default: 'pending' 
+  },
+  createdBy : {
+    type : mongoose.Schema.Types.ObjectId,
+    ref : 'users',
+
   }
 });
 
