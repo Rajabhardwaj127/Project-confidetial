@@ -6,6 +6,8 @@ const {connectToMongoDB} = require("./connect");
 const {restrictToLoggedinUserOnly} = require("./middlewares/auth");
 const userRoute = require("./routes/user");
 const PORT = 8000;
+const orderRouter = require('./controller/orderHandler');
+app.use(orderRouter);
 
 connectToMongoDB("mongodb+srv://rajabhardwaj127:hemlata.satish1977@cluster0.y7htk.mongodb.net/confidential")
 .then(() => {
@@ -22,10 +24,6 @@ app.use("/user",userRoute)
 
 app.set("view engine", "ejs");
 app.set("views", path.resolve("./backend/views"));
-
-
-
-
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../index.html"));
@@ -48,7 +46,6 @@ app.get("/register" , (req,res) =>{
   res.render("register")
 })
 
-
 app.get("/contact",(req,res) => {
   res.sendFile(path.join(__dirname, "../Contact-Us/contact-index.html"));
 })
@@ -61,11 +58,11 @@ app.get("/cart", (req,res) => {
   res.sendFile(path.join(__dirname, "../cart/cart.html"));
 })
 
+app.get("/billing" , restrictToLoggedinUserOnly ,(req,res)=>{
+  res.sendFile(path.join(__dirname, "../billing/billing.html"));
+})
 
 
-// app.get("/" ,(req,res) => {
-//     res.sendFile(path.resolve("./index.html"));
-// })
 
 app.listen(PORT, () => {
   console.log(`Server is running http://localhost:${PORT}/`);
